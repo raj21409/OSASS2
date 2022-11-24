@@ -1,3 +1,4 @@
 make:
 	gcc demo.c -o demo
+	./demo
 
