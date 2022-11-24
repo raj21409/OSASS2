@@ -1,0 +1,21 @@
+diff -r linux-5.19.9/arch/x86/entry/syscalls/syscall_64.tbl linux-5.19.9orig/arch/x86/entry/syscalls/syscall_64.tbl
+375c375
+< 451     common  kernel_2d_memcpy	sys_kernel_2d_memcpy
+---
+> 
+diff -r linux-5.19.9/kernel/sys.c linux-5.19.9orig/kernel/sys.c
+2725,2738d2724
+< SYSCALL_DEFINE2(kernel_2d_memcpy ,float**,matrix1, float**,matrix2)
+< {
+< 	float mat[2][2];
+< 	long copied = __copy_from_user(mat,matrix1, sizeof(mat));
+< 	long ret= __copy_to_user(matrix2,mat, sizeof(mat));
+< 	if(copied){
+< 	return -EFAULT;
+< 	}
+< 	if(ret){
+< 	return -EFAULT;
+< 	}
+< 	printk(KERN_INFO "kernel_2d_memcpy syscall executed successfully !!");
+< 	return 0;
+< }
